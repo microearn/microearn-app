@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroEarn - Gana Dinero con Microtareas</title>
-	 <link rel="icon" href="https://microearn.app/Favicon.png" type="image/png">
+	<link rel="icon" href="https://microearn.app/Favicon.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -14,19 +14,15 @@
         }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #f8f9fa;
             color: #333;
-            min-height: 100vh;
-            padding: 20px;
+            line-height: 1.6;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            padding: 20px;
         }
         
         header {
@@ -34,6 +30,7 @@
             color: white;
             padding: 60px 40px;
             text-align: center;
+            border-radius: 15px 15px 0 0;
         }
         
         .logo {
@@ -71,6 +68,8 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            cursor: pointer;
+            border: none;
         }
         
         .cta-button:hover {
@@ -81,6 +80,10 @@
         
         section {
             padding: 50px 40px;
+            background: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .features {
@@ -114,7 +117,8 @@
             color: #2c3e50;
         }
         
-        form {
+        /* Estilos para el formulario Mailchimp */
+        .mailchimp-form {
             background: white;
             padding: 40px;
             border-radius: 15px;
@@ -122,7 +126,23 @@
             margin: 30px 0;
         }
         
-        input[type="email"] {
+        .mailchimp-form h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        
+        .mailchimp-form p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .mc-field-group {
+            margin-bottom: 20px;
+        }
+        
+        #mce-EMAIL {
             padding: 15px 20px;
             width: 350px;
             max-width: 100%;
@@ -133,12 +153,12 @@
             transition: border-color 0.3s ease;
         }
         
-        input[type="email"]:focus {
+        #mce-EMAIL:focus {
             border-color: #3498db;
             outline: none;
         }
         
-        button[type="submit"] {
+        #mc-embedded-subscribe {
             padding: 15px 30px;
             background: #3498db;
             color: white;
@@ -150,9 +170,35 @@
             transition: all 0.3s ease;
         }
         
-        button[type="submit"]:hover {
+        #mc-embedded-subscribe:hover {
             background: #2980b9;
             transform: translateY(-2px);
+        }
+        
+        .mailchimp-branding {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+        
+        .response {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        #mce-error-response {
+            background: #ffebee;
+            color: #c0392b;
+            border: 1px solid #e74c3c;
+        }
+        
+        #mce-success-response {
+            background: #e8f5e9;
+            color: #27ae60;
+            border: 1px solid #2ecc71;
         }
         
         footer {
@@ -161,15 +207,22 @@
             text-align: center;
             padding: 30px;
             margin-top: 50px;
+            border-radius: 0 0 15px 15px;
         }
         
         @media (max-width: 768px) {
             .logo { font-size: 2.5rem; }
             h1 { font-size: 2rem; }
             .subtitle { font-size: 1.1rem; }
-            input[type="email"] {
+            
+            #mce-EMAIL {
                 width: 100%;
                 margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            #mc-embedded-subscribe {
+                width: 100%;
             }
         }
     </style>
@@ -212,21 +265,37 @@
         </section>
 
         <section id="waitlist" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="text-align: center; margin-bottom: 30px;">Únete a la Lista de Espera</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">
-                Sé de los primeros en acceder. <strong>Early adopters tendrán comisión reducida!</strong>
-            </p>
-            
-            <form action="https://formsubmit.co/microearn.app@gmail.com" method="POST">
-                <input type="email" name="email" placeholder="Tu email" required>
-                <input type="hidden" name="_next" value="https://microearn.app/gracias.html">
-                <input type="hidden" name="_subject" value="Nuevo suscriptor de MicroEarn">
-                <button type="submit">Notificarme al Lanzar</button>
-            </form>
-            
-            <p style="text-align: center; margin-top: 20px; opacity: 0.8;">
-                Sin spam. Solo updates importantes del lanzamiento.
-            </p>
+            <div class="mailchimp-form">
+                <h2>Únete a la Lista de Espera</h2>
+                <p>Sé de los primeros en acceder. <strong>Early adopters tendrán comisión reducida!</strong></p>
+                
+                <div id="mc_embed_signup">
+                    <form action="https://app.us15.list-manage.com/subscribe/post?u=e83f7cd5c4cf4163b6a7777c2&amp;id=be679d1cd5&amp;f_id=00dfaee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                        <div id="mc_embed_signup_scroll">
+                            <div class="mc-field-group">
+                                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required placeholder="Tu email">
+                            </div>
+                            
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display: none;"></div>
+                                <div class="response" id="mce-success-response" style="display: none;"></div>
+                            </div>
+                            
+                            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_e83f7cd5c4cf4163b6a7777c2_be679d1cd5" tabindex="-1" value="">
+                            </div>
+                            
+                            <div class="clear">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="cta-button" value="Notificarme al Lanzar" style="border: none;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="mailchimp-branding">
+                    <p>Gestionado por Mailchimp</p>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -256,7 +325,21 @@
         </footer>
     </div>
 
-    <script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+        (function($) {
+            window.fnames = new Array(); 
+            window.ftypes = new Array();
+            fnames[0]='EMAIL';
+            ftypes[0]='email';
+            fnames[1]='FNAME';
+            ftypes[1]='text';
+            fnames[2]='LNAME';
+            ftypes[2]='text';
+        }(jQuery));
+        
+        var $mcj = jQuery.noConflict(true);
+        
         // Smooth scroll para el botón
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
