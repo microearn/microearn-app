@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="https://microearn.app/Favicon.png" type="image/png">
     <title>¡Gracias por unirte! - MicroEarn</title>
     <style>
         * {
@@ -17,8 +16,8 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             padding: 20px;
         }
         
@@ -32,6 +31,17 @@
             width: 100%;
         }
         
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
         .success-icon {
             font-size: 4rem;
             color: #2ecc71;
@@ -41,32 +51,14 @@
         h1 {
             color: #2c3e50;
             margin-bottom: 20px;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
         
         p {
             color: #7f8c8d;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 25px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        
-        .cta-button:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
         }
         
         .benefits {
@@ -90,10 +82,72 @@
         .benefits li {
             padding: 10px 0;
             border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
         }
         
         .benefits li:last-child {
             border-bottom: none;
+        }
+        
+        .benefits li::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .next-steps {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .next-steps h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background: #95a5a6;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
         
         @media (max-width: 768px) {
@@ -102,29 +156,63 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="success-icon">✅</div>
-        <h1>¡Gracias por unirte!</h1>
-        <p>Te has añadido correctamente a nuestra lista de espera.</p>
-        <p>Te notificaremos tan pronto como MicroEarn esté disponible.</p>
+        <div class="logo">Micro<span>Earn</span></div>
+        <div class="success-icon">🎉</div>
+        
+        <h1>¡Te has unido exitosamente!</h1>
+        <p>Gracias por suscribirte a la lista de espera de <strong>MicroEarn</strong>. Eres de los primeros en tener acceso prioritario cuando lancemos.</p>
         
         <div class="benefits">
-            <h3>🎁 Beneficios por ser early adopter:</h3>
+            <h3>🎁 Beneficios por ser Early Adopter</h3>
             <ul>
-                <li>✅ Comisión reducida del 10% (normal 15%)</li>
-                <li>✅ Acceso 48 horas antes que el público</li>
-                <li>✅ Soporte prioritario permanente</li>
-                <li>✅ Invitaciones a tareas exclusivas</li>
+                <li>Comisión reducida del 10% (normal 15%)</li>
+                <li>Acceso 48 horas antes que el público general</li>
+                <li>Soporte prioritario permanente</li>
+                <li>Invitaciones a tareas exclusivas</li>
+                <li>Updates exclusivos del desarrollo</li>
             </ul>
         </div>
         
-        <a href="https://microearn.app" class="cta-button">Volver al Inicio</a>
+        <div class="next-steps">
+            <h3>📫 ¿Qué sigue?</h3>
+            <p>Revisa tu email y <strong>confirma tu suscripción</strong> (busca en spam si no lo ves). Luego recibirás:</p>
+            <ul>
+                <li>Email de bienvenida con más detalles</li>
+                <li>Updates semanales de nuestro progreso</li>
+                <li>La notificación 48h antes del lanzamiento</li>
+            </ul>
+        </div>
+
+        <div class="button-group">
+            <a href="https://microearn.app" class="cta-button">Volver al Inicio</a>
+            <a href="mailto:info@microearn.app" class="secondary-button">Contactar Soporte</a>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #95a5a6;">
+            ¿Problemas con la confirmación? Escríbenos a: <a href="mailto:info@microearn.app" style="color: #3498db;">info@microearn.app</a>
+        </p>
     </div>
+
+    <script>
+        // Redirección automática después de 8 segundos
+        setTimeout(function() {
+            window.location.href = "https://microearn.app";
+        }, 8000);
+    </script>
 </body>
 </html>
